@@ -15,8 +15,7 @@ Le détail de la modélisation de ces données est disponible dans [model.md](/M
 
 ## Visualisation de l'API
 
-Vous pouvez consulter l'API disponible dans ce service en vous rendant sur [swagger-editor](https://editor.swagger.io).
-Il suffit de copier-coller le contenu du fichier [swagger.yaml](https://raw.githubusercontent.com/MGDIS/guide-des-aides/master/mock-service/api/swagger/swagger.yaml) dans la partie de gauche.
+Vous pouvez consulter l'API disponible dans ce service en vous rendant sur [swagger-UI](https://https://petstore.swagger.io/?url=https://raw.githubusercontent.com/MGDIS/guide-des-aides/master/mock-service/api/swagger/swagger.yaml).
 
 ## Exemples d'usage de l'API
 
