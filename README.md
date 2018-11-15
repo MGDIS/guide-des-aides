@@ -15,9 +15,9 @@ Le détail de la modélisation de ces données est disponible dans [model.md](/M
 
 ## Visualisation de l'API
 
-Vous pouvez consulter l'API disponible dans ce service en vous rendant sur [swagger-UI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/MGDIS/guide-des-aides/master/mock-service/api/swagger/swagger.yaml).
+Vous pouvez consulter l'API disponible dans ce service en vous rendant sur [swagger-UI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/MGDIS/guide-des-aides/master/mock-service/api/swagger/swagger.yaml). 
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/e647802ec27b4f5b10ae)
+Vous pouvez utiliser [postman](https://www.getpostman.com/apps) pour avoir des exemples d'appels d'API avec la collection [![guide-des-aides](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/e647802ec27b4f5b10ae)
 
 ## Exemples d'usage de l'API
 
