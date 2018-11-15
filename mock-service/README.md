@@ -16,4 +16,4 @@ Open your browser and got to [/docs](http://localhost:10010/docs)
 
 ## 3. Get the OpenAPI v2.0 specification file
 
-Open your browser and got to [/api-doc](http://localhost:10010/api-doc)
+Open your browser and got to [/api-docs](http://localhost:10010/api-docs)
