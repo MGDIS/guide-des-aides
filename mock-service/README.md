@@ -1,8 +1,18 @@
 # mock service
 
+## Prerequisites
+
+### Windows
+* [Node.js](https://nodejs.org/download/release/latest/node-v11.1.0-x64.msi)
+* [npm](https://github.com/coreybutler/nvm-windows#installation--upgrades)
+
+### Linux
+* [Node.js](http://nodejs.org/download/)
+* [npm](https://docs.npmjs.com/getting-started/installing-node)
+
 ## 1. Install the swagger module
 
-Install using npm.
+Install using npm. Open a terminal.
 
 ```bash
 $ npm install -g swagger
