@@ -1,0 +1,33 @@
+title Consultation d'une aide
+navigateur->+guide-des-aides: GET /guide-des-aides/api/tenants/test/aides
+guide-des-aides-->-navigateur: Lister les aides disponibles
+note left of navigateur: Sélectionner une aide à afficher
+navigateur->+guide-des-aides: GET /guide-des-aides/api/tenants/test/aides/01
+guide-des-aides-->-navigateur: Récupèrer une aide
+note left of navigateur :
+    Une aide est composée de :
+    - liste de compétences
+    - liste de mots clés
+    - liste d'engagements
+    - liste de publics bénéficiaires
+end note
+note over navigateur,guide-des-aides :
+    Le libellé de chaque donnée liée est présent dans l'aide 
+    (exemple competences.0.title).
+end note
+note over navigateur,guide-des-aides :
+    Pour le cas des engagements, il est nécessaire de 
+    récupérer le modèle de document lié à chaque engagement. 
+    Il est nécessaire de faire un GET sur tous les engagements
+    de l'aide récupérée.
+end note
+loop liste des engagements
+    navigateur->+guide-des-aides: GET /guide-des-aides/api/tenants/test/engagements/01
+    guide-des-aides-->-navigateur: Récupèrer un engagement
+    navigateur->navigateur: extraire le document lié
+    note left of navigateur: 
+        nom : document.title
+        binaire: document.id
+        metadonnées: document.href
+    end note
+end

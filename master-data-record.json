@@ -1,0 +1,56 @@
+{
+  "definitions": {
+    "MasterDataRecordType": {
+      "type": "object",
+      "properties": {
+        "expiration": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "description": {
+          "$ref": "#/definitions/LocalizedTextType"
+        },
+        "title": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "actif": {
+          "type": "boolean",
+          "default": false
+        },
+        "reference": {
+          "$ref": "#/definitions/ReferenceType"
+        }
+      },
+      "required": [
+        "reference",
+        "title",
+        "actif"
+      ]
+    },
+    "ReferenceType": {
+      "pattern": "^[a-zA-Z0-9\\-_\\.]{0,36}$",
+      "type": "string"
+    },
+    "LocalizedTextType": {
+      "properties": {
+        "lang": {
+          "$ref": "#/definitions/LangType"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "value"
+      ]
+    },
+    "LangType": {
+      "type": "string"
+    }
+  },
+  "$ref": "#/definitions/MasterDataRecordType"
+}

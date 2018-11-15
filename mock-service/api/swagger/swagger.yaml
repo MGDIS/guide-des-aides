@@ -1,0 +1,890 @@
+swagger: "2.0"
+host: localhost:10010
+basePath: /guide-des-aides
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+info:
+  title: Guide des aides
+  description: |
+    Le Guide des aides est un module du produit Pilotage des aides, qui est soumis à licence.  Ce service doit permettre à une collectivité :
+
+    - de décrire son guide des aides à travers une interface présente dans l'espace d'administration.
+
+    - de donner accès en lecture à ce guide des aides, à travers une api dédiée, à des intervenants externes au portail des aides, afin de publier par exemple ce guide dans le site institutionnel de la société.
+
+    - de donner la possibilité à des demandeurs de subventions, de visualiser et d'utiliser cette description du guides aides pour sélectionner un téléservice."
+  contact:
+    email: contact@mgdis.fr
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+tags:
+  - name: aides
+    description: Liste des aides disponibles
+  - name: engagements
+    description: Liste des engagements disponibles
+  - name: competences
+    description: Liste des compétences disponibles
+  - name: mots-cles
+    description: Liste des mot(s)-clé(s) disponibles
+  - name: publics-beneficiaires
+    description: Liste des publics bénéficiaires disponibles
+securityDefinitions:
+    basicTenant:
+      type: basic
+      description: Authentification avec identifiant/mot de passe au niveau du tenant
+    jwtTenant:
+      type: apiKey
+      description: Authentification avec l'utilisation d'un token Jwt au niveau du tenant
+      in: header
+      name: Authorization
+    basicService:
+      type: basic
+      description: Authentification avec identifiant/mot de passe au niveau du service
+paths:
+  /api/tenants/{tenantId}/aides:
+    parameters:
+      - name: tenantId
+        in: path
+        description: identifiant du client
+        required: true
+        type: string
+    get:
+      x-swagger-router-controller: aide
+      tags:
+      - aides
+      summary: Liste les aides disponibles dans le guide des aides
+      description: |
+        Permet de lister les aides et de filtrer celles qui correspondent à vos critères
+      operationId: listeAides
+      parameters:
+        - name: tags
+          in: query
+          description: Liste des tags pour filtrer les aides
+          required: false
+          type: string
+        - name: skip
+          in: query
+          description: Index de l'engagement à partir duquel on doit commencer la pagination
+          required: false
+          minimum: 0
+          type: integer
+          default: 0
+        - name: top
+          in: query
+          description: Nombre d'engagements maximum à renvoyer
+          required: false
+          maximum: 50
+          minimum: 0
+          type: integer
+          format: int32
+          default: 20
+      responses:
+        200:
+          description: Liste des aides correspondantes à la recherche
+          schema:
+            $ref: '#/definitions/ArrayResponseType'
+        400:
+          description: Un des paramètres d'entrée est incorrect. Voir contenu de la réponse pour plus de détail.
+    post:
+      x-swagger-router-controller: aide
+      tags:
+        - aides
+      summary: Ajoute une nouvelle aide dans le guide des aides
+      description: Ajoute une nouvelle aide et génère son identifiant unique dans le guide des aides
+      operationId: ajouterAide
+      parameters:
+      - in: body
+        name: aide
+        description: Aide à ajouter dans le guide des aides
+        required: true
+        schema:
+          $ref: '#/definitions/AideType'
+      responses:
+        201:
+          description: L'aide a été créée
+          schema:
+            $ref: '#/definitions/AideResponseType'
+        400:
+          description: Les données d'entrée sont invalides
+#      security:
+#        - jwtTenant: []
+#        - basicTenant: []
+#        - basicService: []
+  /api/tenants/{tenantId}/aides/{id}:
+    parameters:
+      - name: tenantId
+        in: path
+        description: identifiant du client
+        required: true
+        type: string
+      - name: id
+        in: path
+        description: identifiant de l'aide
+        required: true
+        type: string
+    get:
+      x-swagger-router-controller: aide
+      tags:
+      - aides
+      summary: Récupère une aide du guide des aides
+      description: |
+        Obtient une aide du guide des aides
+      operationId: recupererAide
+      responses:
+        200:
+          description: Retourne l'aide demandée avec son identifiant
+          schema:
+            $ref: '#/definitions/AideResponseType'
+        404:
+          description: Si l'identifiant n'existe pas dans le guide des aides
+  /api/tenants/{tenantId}/engagements:
+    parameters:
+      - name: tenantId
+        in: path
+        description: identifiant du client
+        required: true
+        type: string
+    get:
+      x-swagger-router-controller: engagement
+      tags:
+      - engagements
+      summary: Liste les engagements disponibles dans le guide des aides
+      description: |
+        Permet de lister les engagements et de filtrer ceux qui correspondent à vos critères
+      operationId: listeEngagements
+      parameters:
+        - name: skip
+          in: query
+          description: Index de l'engagement à partir duquel on doit commencer la pagination
+          required: false
+          minimum: 0
+          type: integer
+          default: 0
+        - name: top
+          in: query
+          description: Nombre d'engagements maximum à renvoyer
+          required: false
+          maximum: 50
+          minimum: 0
+          type: integer
+          format: int32
+          default: 20
+      responses:
+        200:
+          description: Liste des engagements correspondants à la recherche
+          schema:
+            $ref: '#/definitions/ArrayResponseType'
+        400:
+          description: Un des paramètres d'entrée est incorrect. Voir contenu de la réponse pour plus de détail.
+  /api/tenants/{tenantId}/engagements/{id}:
+    parameters:
+      - name: tenantId
+        in: path
+        description: identifiant du client
+        required: true
+        type: string
+      - name: id
+        in: path
+        description: identifiant de l'engagement
+        required: true
+        type: string
+    get:
+      x-swagger-router-controller: engagement
+      tags:
+      - engagements
+      summary: Récupère un engagement du guide des aides
+      description: |
+        Obtient un engagement du guide des aides
+      operationId: recupererEngagement
+      responses:
+        200:
+          description: Retourne l'engagement demandé avec son identifiant
+          schema:
+            $ref: '#/definitions/EngagementType'
+        404:
+          description: Si l'identifiant n'existe pas dans le guide des aides
+    put:
+      x-swagger-router-controller: engagement
+      tags:
+      - engagements
+      summary: Ajoute un nouvel engagement dans le guide des aides
+      description: Ajoute un nouvel engagement dans le guide des aides
+      operationId: ajouterEngagement
+      parameters:
+        - name: engagement
+          in: body
+          description: Engagement à ajouter dans le guide des aides
+          schema:
+            $ref: '#/definitions/EngagementType'
+      responses:
+        201:
+          description: L'engagement a été créé
+          schema:
+            $ref: '#/definitions/EngagementType'
+        400:
+          description: Les données d'entrée sont invalides
+#      security:
+#        - jwtTenant: []
+#        - basicTenant: []
+#        - basicService: []
+    patch:
+      x-swagger-router-controller: engagement
+      tags:
+      - engagements
+      summary: Modifie partiellement un engagement du guide des aides
+      description: |
+        Modifie partiellement un engagement du guide des aides
+      operationId: modifierPartiellementEngagement
+      parameters:
+        - name: patch
+          in: body
+          required: true
+          description: Patch à appliquer sur la donnée existante
+          schema:
+            $ref: '#/definitions/PatchType'
+      responses:
+        200:
+          description: Retourne l'engagement modifié
+          schema:
+            $ref: '#/definitions/EngagementType'
+        404:
+          description: Si l'identifiant n'existe pas dans le guide des aides
+#      security:
+#        - jwtTenant: []
+#        - basicTenant: []
+#        - basicService: []
+  /api/tenants/{tenantId}/competences:
+    parameters:
+      - name: tenantId
+        in: path
+        description: identifiant du client
+        required: true
+        type: string
+    get:
+      x-swagger-router-controller: competence
+      tags:
+      - competences
+      summary: Liste les compétences disponibles dans le guide des aides
+      description: |
+        Permet de lister les compétences et de filtrer celles qui correspondent à vos critères
+      operationId: listeCompetences
+      parameters:
+        - name: skip
+          in: query
+          description: Index de la compétence à partir de laquelle on doit commencer la pagination
+          required: false
+          minimum: 0
+          type: integer
+          format: int32
+          default: 0
+        - name: top
+          in: query
+          description: Nombre de compétences maximum à renvoyer
+          required: false
+          maximum: 50
+          minimum: 0
+          type: integer
+          format: int32
+          default: 20
+      responses:
+        200:
+          description: Liste des compétences correspondantes à la recherche
+          schema:
+            $ref: '#/definitions/ArrayResponseType'
+        400:
+          description: Un des paramètres d'entrée est incorrect. Voir contenu de la réponse pour plus de détail.
+  /api/tenants/{tenantId}/competences/{id}:
+    parameters:
+      - name: tenantId
+        in: path
+        description: identifiant du client
+        required: true
+        type: string
+      - name: id
+        in: path
+        description: identifiant de la compétence
+        required: true
+        type: string
+    get:
+      x-swagger-router-controller: competence
+      tags:
+      - competences
+      summary: Récupère une compétence du guide des aides
+      description: |
+        Obtient une compétence du guide des aides
+      operationId: recupererCompetence
+      responses:
+        200:
+          description: Retourne la compétence demandée avec son identifiant
+          schema:
+            $ref: '#/definitions/MasterDataType'
+        404:
+          description: Si l'identifiant n'existe pas dans le guide des aides
+    put:
+      x-swagger-router-controller: competence
+      tags:
+      - competences
+      summary: Ajoute une nouvelle compétence dans le guide des aides
+      description: Ajoute une nouvelle compétence dans le guide des aides
+      operationId: ajouterCompetence
+      parameters:
+        - name: competence
+          in: body
+          description: Compétence à ajouter dans le guide des aides
+          required: true
+          schema:
+            $ref: '#/definitions/MasterDataType'
+      responses:
+        201:
+          description: La compétence a été créée
+          schema:
+            $ref: '#/definitions/MasterDataType'
+        400:
+          description: Les données d'entrée sont invalides
+#      security:
+#        - jwtTenant: []
+#        - basicTenant: []
+#        - basicService: []
+    patch:
+      x-swagger-router-controller: competence
+      tags:
+      - competences
+      summary: Modifie partiellement une compétence du guide des aides
+      description: |
+        Modifie partiellement une compétence du guide des aides
+      operationId: modifierPartiellementCompetence
+      parameters:
+      - in: body
+        name: patch
+        description: Patch à appliquer sur la donnée existante
+        schema:
+          $ref: '#/definitions/PatchType'
+      responses:
+        200:
+          description: Retourne la competence modifiée
+          schema:
+            $ref: '#/definitions/MasterDataType'
+        404:
+          description: Si l'identifiant n'existe pas dans le guide des aides
+#      security:
+#        - jwtTenant: []
+#        - basicTenant: []
+#        - basicService: []
+  /api/tenants/{tenantId}/mots-cles:
+    parameters:
+      - name: tenantId
+        in: path
+        description: identifiant du client
+        required: true
+        type: string
+    get:
+      x-swagger-router-controller: mot-cle
+      tags:
+      - mots-cles
+      summary: Liste les mots-clés disponibles dans le guide des aides
+      description: |
+        Permet de lister les mots-cles et de filtrer ceux qui correspondent à vos critères
+      operationId: listeMotsCles
+      parameters:
+        - name: skip
+          in: query
+          description: Index du mot-clé à partir duquel on doit commencer la pagination
+          required: false
+          minimum: 0
+          type: integer
+          format: int32
+          default: 0
+        - name: top
+          in: query
+          description: Nombre de compétences maximum à renvoyer
+          required: false
+          maximum: 50
+          minimum: 0
+          type: integer
+          format: int32
+          default: 20
+      responses:
+        200:
+          description: Liste des mots-cles correspondants à la recherche
+          schema:
+            $ref: '#/definitions/ArrayResponseType'
+        400:
+          description: Un des paramètres d'entrée est incorrect. Voir contenu de la réponse pour plus de détail.
+  /api/tenants/{tenantId}/mots-cles/{id}:
+    parameters:
+      - name: tenantId
+        in: path
+        description: identifiant du client
+        required: true
+        type: string
+      - name: id
+        in: path
+        description: identifiant du mot-clé
+        required: true
+        type: string
+    get:
+      x-swagger-router-controller: mot-cle
+      tags:
+      - mots-cles
+      summary: Récupère un mot-clé du guide des aides
+      description: |
+        Obtient un mot-clé du guide des aides
+      operationId: recupererMotCle
+      responses:
+        200:
+          description: Retourne le mot-clé demandé avec son identifiant
+          schema:
+            $ref: '#/definitions/MasterDataType'
+        404:
+          description: Si l'identifiant n'existe pas dans le guide des aides
+    put:
+      x-swagger-router-controller: mot-cle
+      tags:
+      - mots-cles
+      summary: Ajoute un nouveau mot-clé dans le guide des aides
+      description: Ajoute un nouveau mot-clé dans le guide des aides
+      operationId: ajouterMotCle
+      parameters:
+        - name: motCle
+          in: body
+          description: Mot-clé à ajouter dans le guide des aides
+          schema:
+            $ref: '#/definitions/MasterDataType'
+      responses:
+        201:
+          description: Le mot-clé a été créé
+          schema:
+            $ref: '#/definitions/MasterDataType'
+        400:
+          description: Les données d'entrée sont invalides
+#      security:
+#        - jwtTenant: []
+#        - basicTenant: []
+#        - basicService: []
+    patch:
+      x-swagger-router-controller: mot-cle
+      tags:
+      - competences
+      summary: Modifie partiellement un mot-clé du guide des aides
+      description: |
+        Modifie partiellement un mot-clé du guide des aides
+      operationId: modifierPartiellementMotCle
+      parameters:
+      - name: patch
+        in: body
+        description: Patch à appliquer sur la donnée existante
+        schema:
+          $ref: '#/definitions/PatchType'
+      responses:
+        200:
+          description: Retourne le mot-clé modifié
+          schema:
+            $ref: '#/definitions/MasterDataType'
+        404:
+          description: Si l'identifiant n'existe pas dans le guide des aides
+#      security:
+#        - jwtTenant: []
+#        - basicTenant: []
+#        - basicService: []
+  /api/tenants/{tenantId}/publics-beneficiaires:
+    parameters:
+      - name: tenantId
+        in: path
+        description: identifiant du client
+        required: true
+        type: string
+    get:
+      x-swagger-router-controller: public-beneficiaire
+      tags:
+      - publics-beneficiaires
+      summary: Liste les publics bénéficiaires disponibles dans le guide des aides
+      description: |
+        Permet de lister les publics bénéficiaires et de filtrer ceux qui correspondent à vos critères
+      operationId: listePublicsBeneficiaires
+      parameters:
+        - name: skip
+          in: query
+          description: Index du public bénéficiaire à partir duquel on doit commencer la pagination
+          required: false
+          minimum: 0
+          type: integer
+          format: int32
+          default: 0
+        - name: top
+          in: query
+          description: Nombre de publics bénéficiaires maximum à renvoyer
+          required: false
+          maximum: 50
+          minimum: 0
+          type: integer
+          format: int32
+          default: 20
+      responses:
+        200:
+          description: Liste des publics bénéficiaires correspondants à la recherche
+          schema:
+            $ref: '#/definitions/ArrayResponseType'
+        400:
+          description: Un des paramètres d'entrée est incorrect. Voir contenu de la réponse pour plus de détail.
+  /api/tenants/{tenantId}/publics-beneficiaires/{id}:
+    parameters:
+      - name: tenantId
+        in: path
+        description: identifiant du client
+        required: true
+        type: string
+      - name: id
+        in: path
+        description: identifiant du public bénéficiaire
+        required: true
+        type: string
+    get:
+      x-swagger-router-controller: public-beneficiaire
+      tags:
+      - publics-beneficiaires
+      summary: Récupère un public bénéficiaire du guide des aides
+      description: |
+        Obtient un public bénéficiaire du guide des aides
+      operationId: recupererPublicBeneficiaire
+      responses:
+        200:
+          description: Retourne le public bénéficiaire demandé avec son identifiant
+          schema:
+            $ref: '#/definitions/MasterDataType'
+        404:
+          description: Si l'identifiant n'existe pas dans le guide des aides
+    put:
+      x-swagger-router-controller: public-beneficiaire
+      tags:
+      - publics-beneficiaires
+      summary: Ajoute un nouveau public bénéficiaire dans le guide des aides
+      description: Ajoute un nouveau public bénéficiaire dans le guide des aides
+      operationId: ajouterPublicBeneficiaire
+      parameters:
+      - name: publicBeneficiaire
+        in: body
+        description: Public bénéficiaire à ajouter dans le guide des aides
+        schema:
+          $ref: '#/definitions/MasterDataType'
+      responses:
+        201:
+          description: Le public bénéficiaire a été créé
+          schema:
+            $ref: '#/definitions/MasterDataType'
+        400:
+          description: Les données d'entrée sont invalides
+#      security:
+#        - jwtTenant: []
+#        - basicTenant: []
+#        - basicService: []
+    patch:
+      x-swagger-router-controller: public-beneficiaire
+      tags:
+      - publics-beneficiaires
+      summary: Modifie partiellement un public bénéficiaire du guide des aides
+      description: |
+        Modifie partiellement un public bénéficiaire du guide des aides
+      operationId: modifierPartiellementPublicBeneficaire
+      parameters:
+      - name: patch
+        in: body
+        description: Patch à appliquer sur la donnée existante
+        schema:
+          $ref: '#/definitions/PatchType'
+      responses:
+        200:
+          description: Retourne le public bénéficiaire modifié
+          schema:
+            $ref: '#/definitions/MasterDataType'
+        404:
+          description: Si l'identifiant n'existe pas dans le guide des aides
+#      security:
+#        - jwtTenant: []
+#        - basicTenant: []
+#        - basicService: []
+definitions:
+    LinkType:
+      required:
+      - href
+      - title
+      properties:
+        href:
+          type: string
+          format: uri-reference
+        title:
+          type: string
+      additionalProperties: false
+    LinkDocumentType:
+      required:
+      - href
+      - id
+      - title
+      properties:
+        href:
+          type: string
+          format: uri-reference
+        id:
+          type: string
+          format: uri-reference
+        origin:
+          type: string
+          format: uri-reference
+        title:
+          type: string
+      additionalProperties: false
+    AideType:
+      required:
+      - title
+      properties:
+        title:
+          type: string
+        libelle:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        competences:
+          type: array
+          items:
+            type: string
+        entete:
+          type: string
+        documentsInformatifs:
+          $ref: '#/definitions/AideType_documentsInformatifs'
+        objectif:
+          type: string
+        publicsBeneficiaire:
+          type: array
+          items:
+            $ref: '#/definitions/LinkType'
+        publicsBeneficiairePrecision:
+          type: string
+        modalite:
+          type: string
+        criteresEligibilite:
+          type: string
+        demarches:
+          type: string
+        documentsNecessaires:
+          $ref: '#/definitions/AideType_documentsInformatifs'
+        contact:
+          $ref: '#/definitions/AideType_contact'
+        engagementsAssocies:
+          type: array
+          items:
+            $ref: '#/definitions/LinkType'
+        note:
+          type: string
+        deliberationCadre:
+          type: string
+        dateOuvertureCampagne:
+          $ref: '#/definitions/DateTimeType'
+        dateFinCampagne:
+          $ref: '#/definitions/DateTimeType'
+        dateDebutFutureCampagne:
+          $ref: '#/definitions/DateTimeType'
+        datePublicationSouhaitee:
+          $ref: '#/definitions/DateTimeType'
+        commentaire:
+          type: string
+        groupeFonctionnel:
+          $ref: '#/definitions/LinkType'
+        groupeGestion:
+          $ref: '#/definitions/LinkType'
+        statut:
+          type: string
+          default: BROUILLON
+          enum:
+          - BROUILLON
+          - A_VALIDER
+          - A_RELIRE
+          - A_PUBLIER
+          - PUBLIER
+      additionalProperties: false
+    AideResponseType:
+      required:
+      - title
+      properties:
+        reference:
+          type: string
+        title:
+          type: string
+        libelle:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        competences:
+          type: array
+          items:
+            type: string
+        entete:
+          type: string
+        documentsInformatifs:
+          $ref: '#/definitions/AideType_documentsInformatifs'
+        objectif:
+          type: string
+        publicsBeneficiaire:
+          type: array
+          items:
+            $ref: '#/definitions/LinkType'
+        publicsBeneficiairePrecision:
+          type: string
+        modalite:
+          type: string
+        criteresEligibilite:
+          type: string
+        demarches:
+          type: string
+        documentsNecessaires:
+          $ref: '#/definitions/AideType_documentsInformatifs'
+        contact:
+          $ref: '#/definitions/AideType_contact'
+        engagementsAssocies:
+          type: array
+          items:
+            $ref: '#/definitions/LinkType'
+        note:
+          type: string
+        deliberationCadre:
+          type: string
+        dateOuvertureCampagne:
+          $ref: '#/definitions/DateTimeType'
+        dateFinCampagne:
+          $ref: '#/definitions/DateTimeType'
+        dateDebutFutureCampagne:
+          $ref: '#/definitions/DateTimeType'
+        datePublicationSouhaitee:
+          $ref: '#/definitions/DateTimeType'
+        commentaire:
+          type: string
+        groupeFonctionnel:
+          $ref: '#/definitions/LinkType'
+        groupeGestion:
+          $ref: '#/definitions/LinkType'
+        statut:
+          type: string
+          default: 'BROUILLON'
+          enum:
+          - BROUILLON
+          - A_VALIDER
+          - A_RELIRE
+          - A_PUBLIER
+          - PUBLIER
+      additionalProperties: false
+    EngagementType:
+      required:
+      - actif
+      - reference
+      - title
+      type: object
+      properties:
+        expiration:
+          type: string
+          format: date-time
+        description:
+          type: string
+        title:
+          type: string
+        value:
+          type: string
+        actif:
+          type: boolean
+          default: false
+        reference:
+          pattern: ^[a-zA-Z0-9\-_\.]{0,36}$
+          type: string
+        document:
+          $ref: '#/definitions/LinkDocumentType'
+      additionalProperties: false
+    PatchType:
+      required:
+      - op
+      - path
+      type: object
+      properties:
+        op:
+          type: string
+          enum:
+          - add
+          - remove
+          - replace
+        path:
+          pattern: ^/.*$
+          type: string
+        value:
+          # only supported on OpenAPI spec v3.0
+          #oneOf:
+          # - type: any
+          # - type: string
+          # - type: number
+          # - type: array
+          # - type: boolean
+          type: string
+      additionalProperties: false
+    MasterDataType:
+      required:
+      - actif
+      - reference
+      - title
+      type: object
+      properties:
+        expiration:
+          type: string
+          format: date-time
+        description:
+          type: string
+        title:
+          type: string
+        value:
+          type: string
+        actif:
+          type: boolean
+          default: false
+        reference:
+          pattern: ^[a-zA-Z0-9\-_\.]{0,36}$
+          type: string
+      additionalProperties: false
+    AideType_documentsInformatifs:
+      type: object
+      properties:
+        ^[A-Za-z0-9]+$:
+          $ref: '#/definitions/LinkDocumentType'
+      example:
+        document1:
+          href: "/document-collect/root/tenant?objectId=SfxU34kg"
+          id: "/document-collect/root/tenant/public/modeles/RI.pdf"
+          title: "TP'up - Règlement d'intervention - CP 2018-484 du 17.10.18"
+    AideType_contact:
+      type: object
+      properties:
+        email:
+          type: string
+        phone:
+          type: string
+        title:
+          type: string
+    DateTimeType:
+      type: string
+      format: date-time
+      example: "2018-11-18T08:00:19Z"
+    ArrayResponseType:
+      type: array
+      items:
+        type: object
+        properties: 
+          href: 
+            type: string
+            format: uri-reference
+          title: 
+            type: string
+          description: 
+            type: string

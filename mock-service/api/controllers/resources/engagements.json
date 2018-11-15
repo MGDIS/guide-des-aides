@@ -1,0 +1,12 @@
+[
+  {
+    "href" : "/guide-des-aides/api/tenants/test/competences/ENG-STAGIAIRE",
+    "title" : "Recruter un stagiaire",
+    "description": "Dans le cadre de la mesure \"Trouver un stage\", chaque bénéficiaire d'une subvention régionale doit s'engager à recruter au moins 1 stagiaire, pour 2 mois minimum, pendant la période de validation de la subvention."
+  },
+  {
+    "href" : "/guide-des-aides/api/tenants/test/competences/ENG-LAICITE",
+    "title" : "Charte de la laïcité",
+    "description": "Afin de promouvoir les valeurs de la République et le principe de la laïcité, une charte est soumise à tous les partenaires régionaux et aux usagers des équipements et services publics régionaux."
+  }
+]

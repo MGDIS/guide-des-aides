@@ -1,0 +1,11 @@
+{
+  "actif" : true,
+  "reference" : "SPORT",
+  "title" : "Sport",
+  "description": "Subvention pour le monde du sport",
+  "document": {
+    "href": "/document-collect/root/tenant?objectId=SfxU37kg",
+    "id": "/document-collect/root/tenant/public/modeles/convention-stage.pdf",
+    "title": "Convention de stage 2018"
+  }
+}

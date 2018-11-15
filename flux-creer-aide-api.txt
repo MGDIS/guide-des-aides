@@ -1,0 +1,42 @@
+title Créer une aide
+note over navigateur, guide-des-aides, document-collect, ged:
+    Une aide peut référencer (optionnel) les éléments suivants :
+        - des compétences, 
+        - des mots-clés, 
+        - des publics de bénéficiaires
+        - des engagements.
+    C'est données liées sont appelées listes de valeurs.
+    Elles doivent exister avant la création de l'aide qui les référence.
+end note
+opt Création d'une compétences
+    navigateur->+guide-des-aides: PUT /guide-des-aides/api/tenants/test/competences/01
+    guide-des-aides-->-navigateur: Enregistrer le lien de la compétence
+end
+opt Création d'un mot-clé
+    navigateur->+guide-des-aides: PUT /guide-des-aides/api/tenants/test/mots-cles/01
+    guide-des-aides-->-navigateur: Enregistrer le lien du mot-clé
+end
+opt Création d'un public de bénéficiaire
+    navigateur->+guide-des-aides: PUT /guide-des-aides/api/tenants/test/publics-beneficiaires/01
+    guide-des-aides-->-navigateur: Enregistrer le lien du public de bénéficiaire
+end
+opt Création d'un engagement
+    note over navigateur, guide-des-aides, document-collect, ged:
+        Un engagement peut référencer un document téléchargeable (optionnel)
+    end note
+    opt Création d'un engagement
+        navigateur->+document-collect: POST /document-collect/test/root/public/modeles?cmisaction=createDocument
+        document-collect->+ged: POST /ged/test/root/public/modeles?cmisaction=createDocument
+        ged-->-document-collect: Enregistrement du document
+        document-collect-->-navigateur: Enregistrement du lien vers le document
+    end
+    navigateur->+guide-des-aides: PUT /guide-des-aides/api/tenants/test/engagements/01
+    note left of navigateur: 
+        document.id: le lien du document
+        document.href: le lien vers les métadonnées
+    end note
+    guide-des-aides-->-navigateur: Enregistrer le lien de l'engagement
+end
+navigateur->+guide-des-aides: POST /guide-des-aides/api/tenants/test/aides
+note left of navigateur: Avec tous les liens crées précédemment
+guide-des-aides-->-navigateur: Aide crée avec sa référence technique

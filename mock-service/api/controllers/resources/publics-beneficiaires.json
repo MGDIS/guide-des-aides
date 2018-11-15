@@ -1,0 +1,22 @@
+[
+  {
+    "href": "/guide-des-aides/api/tenants/test/competences/tpe-pme-eti",
+    "title": "TPE-PME ou ETI localisées en Île-de-France"
+  },
+  {
+    "href": "dev-experimental",
+    "title": "Projet de type développement expérimental"
+  },
+  {
+    "href": "partenariat-en-idf",
+    "title": "Partenariat effectif avec un lieu / territoire situé en île-de-France"
+  },
+  {
+    "href": "collaboration-porteur-evaluateur",
+    "title": "Collaboration entre un porteur de projet et un évaluateur [1]"
+  },
+  {
+    "href": "planning-deploiement",
+    "title": "Planning de déploiement sur 6 à 18 mois maximum"
+  }
+]

@@ -1,0 +1,71 @@
+{
+  "definitions": {
+    "EngagementType": {
+      "type": "object",
+      "properties": {
+        "expiration": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "actif": {
+          "type": "boolean",
+          "default": false
+        },
+        "reference": {
+          "$ref": "#/definitions/ReferenceType"
+        },
+        "document": {
+          "$ref": "#/definitions/LinkDocumentType"
+        }
+      },
+      "required": [
+        "reference",
+        "title",
+        "actif"
+      ]
+    },
+    "ReferenceType": {
+      "pattern": "^[a-zA-Z0-9\\-_\\.]{0,36}$",
+      "type": "string"
+    },
+    "LinkDocumentType": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "description": "Identifie les propriétés CMIS du document",
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "id": {
+          "description": "Identifie le contenu binaire du document.",
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "origin": {
+          "description": "Origine du document lors d'une copie",
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "title": {
+          "description": "Libellé du document",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "href",
+        "id"
+      ]
+    }
+  },
+  "$ref": "#/definitions/EngagementType"
+}

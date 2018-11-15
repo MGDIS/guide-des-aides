@@ -1,0 +1,89 @@
+
+{
+  "reference": "00000001",
+    "title": "TP'up",
+    "libelle": "TP'up",
+    "tags": [
+      "Économie",
+      "Agriculture",
+      "#IDF"
+    ],
+    "competences": [
+      "innovation"
+    ],
+    "entete": "<b>Aider les petites entreprises à se développer et moderniser leur outil de production notamment face aux transformations numériques et écologiques.</b>",
+    "documentsInformatifs": {
+      "reglementIntervention": {
+        "href": "/document-collect/root/tenant?objectId=SfxU34kg",
+        "id": "/document-collect/root/tenant/public/modeles/RI.pdf",
+        "title": "TP'up - Règlement d'intervention - CP 2018-484 du 17.10.18"
+      },
+      "noticeTechnique": {
+        "href": "/document-collect/root/tenant?objectId=SfxU35kg",
+        "id": "/document-collect/root/tenant/public/modeles/notice.pdf",
+        "title": "TP'up - notice technique"
+      },
+      "piecesAFournir": {
+        "href": "/document-collect/root/tenant?objectId=SfxU33kg",
+        "id": "/document-collect/root/tenant/public/modeles/pieces-tpup.pdf",
+        "title": "TP'up - liste des pièces"
+      } 
+    },
+    "objectif": "<p>TP'up vise à accompagner la croissance des TPE qui souhaitent : <ul><li>accroître et/ou moderniser leur outil de production,</li><li>diversifier leurs activités et leurs cibles de clientèle,</li><li>se développer à l’international,</li><li>accélérer leur transformation numérique,</li><li>faire du développement durable un levier de performance,</li><li>intégrer le design à leur stratégie,</li><li>mener des projets de croissance externe.</li></ul><p>",
+    "publicsBeneficiaire": [
+      {
+        "href": "/guide-des-aides/api/tenants/tenantId/publics-beneficiaires/tpe-pme-eti",
+        "title": "TPE-PME ou ETI localisées en Île-de-France,"
+      },
+      {
+        "href": "/guide-des-aides/api/tenants/tenantId/publics-beneficiaires/dev-experimental",
+        "title": "Projet de type développement expérimental,"
+      },
+      {
+        "href": "/guide-des-aides/api/tenants/tenantId/publics-beneficiaires/partenariat-en-idf",
+        "title": "Partenariat effectif avec un lieu / territoire situé en île-de-France,"
+      },
+      {
+        "href": "/guide-des-aides/api/tenants/tenantId/publics-beneficiaires/cpollaboration-porteur-evaluateur",
+        "title": "Collaboration entre un porteur de projet et un évaluateur [1],"
+      },
+      {
+        "href": "/guide-des-aides/api/tenants/tenantId/publics-beneficiaires/planning-deploiement",
+        "title": "Planning de déploiement sur 6 à 18 mois maximum."
+      }
+    ],
+    "publicsBeneficiairePrecision": "<p>TP’up est ouvert&nbsp;aux entreprises&nbsp;:</p><ul><li>relevant de la catégorie des micro-entreprises (comptant moins de 10 salariés en équivalent temps plein dont le chiffre d'affaires annuel ou le total de bilan annuel n'excède pas 2 M€), comptant au moins un salarié ou mobilisant un travailleur dans le cadre d’un groupement d’employeurs,</li><li>artisanales, y compris celles ne comptant pas de salarié à la date de candidature, porteuses d’un projet de création d’emploi,</li><li>implantées en Île-de-France,</li><li>ayant au moins un an d’existence et au moins un exercice comptable achevé.</li></ul>",
+    "modalite": "<p>Subvention pouvant atteindre 55.000€, pour&nbsp;financer un plan stratégique sur 12 à 18 mois, intégrant des actions&nbsp;:</p><ul><li>d’investissement matériel et immatériel,</li><li>de conseil stratégique,</li><li>de développement international (conseil, VIE, salons internationaux&nbsp;et opérations collectives).</li></ul><p>Pour connaître les dépenses pouvant être prises en charge par TP’up et les modalités de versement des aides, consulter le règlement d’intervention ainsi que la notice technique TP’up <em>(téléchargeables ci-dessous).&nbsp;</em></p>",
+    "criteresEligibilite": "<p>Les projets soutenus sont sélectionnés sur la base des critères suivants&nbsp;:</p><ul><li>viabilité de l’entreprise,</li><li>pertinence de la stratégie,</li><li>potentiel de création d’emplois,</li><li>potentiel de développement international et/ou contribution du projet au développement de l’Île-de-France.</li></ul>",
+    "demarches": "<p>Dossier à déposer auprès du Conseil régional d'Île-de-France sur la plateforme <a href=\"https://mesdemarches.iledefrance.fr/aides/#/cridfprd/\" target=\"_blank\">mesdemarches.iledefrance.fr.</a><span style=\"display:none\"> </span></p>",
+    "documentsNecessaires": {
+      "dossierDeCandidature": {
+        "href": "/document-collect/root/tenant?objectId=SfxU37kg",
+        "id": "/document-collect/root/tenant/public/modeles/candidature2018.pdf",
+        "title": "Dossier de candidature 2018"
+      },
+      "annexe": {
+        "href": "/document-collect/root/tenant?objectId=SfxU38kg",
+        "id": "/document-collect/root/tenant/public/modeles/annexes.pdf",
+        "title": "Annexes 2018"
+      }
+    },
+    "contact": {
+      "email": "aides.economiques@iledefrance.fr",
+      "title": "Pensez à laisser vos coordonnées pour pouvoir être recontacté"
+    },
+    "engagementsAssocies": [],
+    "dateOuvertureCampagne": "2018-05-26T12:00:03Z",
+    "dateFinCampagne": "2018-11-26T12:00:03Z",
+    "dateDebutFutureCampagne": "2017-05-26T12:00:03Z",
+    "datePublicationSouhaitee": "2018-05-26T12:00:03Z",
+    "groupeFonctionnel": {
+      "href": "/account-management/tenantId/groups/FONCTIONNEL",
+      "title": "Mon groupe fonctionnel"
+    },
+    "groupeGestion": {
+      "href": "/account-management/tenantId/groups/COMMUNE-A",
+      "title": "Mon groupe de gestion"
+    },
+    "statut": "A_RELIRE"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "contract-guide-des-aides",
+  "version": "1.0.0",
+  "description": "Contracts for organism's subsidies definition",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "gulp clean",
+    "cibuild": "gulp ngConstant && gulp noAddProp && gulp dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "gitlab@gitserv:contract/guide-des-aides.git"
+  },
+  "keywords": [
+    "contract",
+    "aide",
+    "guide"
+  ],
+  "author": "Johan Lelan <lelan-f@mgdis.fr>",
+  "license": "",
+  "devDependencies": {
+    "del": "^1.1.1",
+    "gulp": "^4.0.0"
+  }
+}
