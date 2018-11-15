@@ -1,4 +1,4 @@
-# guide-des-aides
+# Service guide-des-aides
 
 Définition de chaque aide dispensée par une collectivité.
 L'ensemble des définitions représente son guide des aides.
