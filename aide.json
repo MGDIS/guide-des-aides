@@ -5,6 +5,13 @@
     "AideType": {
       "type": "object",
       "properties": {
+        "reference": {
+          "$ref": "#/definitions/ReferenceType"
+        },
+        "referenceAdministrative": {
+          "description": "Référence administrative",
+          "$ref": "#/definitions/ReferenceType"
+        },
         "title": {
           "description": "Libellé technique de l'aide",
           "type": "string"
@@ -162,6 +169,10 @@
       "required": [
         "title"
       ]
+    },
+    "ReferenceType": {
+      "pattern": "^[a-zA-Z0-9\\-_\\.]{0,36}$",
+      "type": "string"
     },
     "LinkType": {
       "description": "RFC for Web Linking context",

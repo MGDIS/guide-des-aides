@@ -6,6 +6,13 @@ angular.module("guide-des-aides.contract", [])
     "AideType": {
       "type": "object",
       "properties": {
+        "reference": {
+          "$ref": "#/definitions/ReferenceType"
+        },
+        "referenceAdministrative": {
+          "description": "Référence administrative",
+          "$ref": "#/definitions/ReferenceType"
+        },
         "title": {
           "description": "Libellé technique de l'aide",
           "type": "string"
@@ -58,7 +65,7 @@ angular.module("guide-des-aides.contract", [])
             "$ref": "#/definitions/LinkType"
           }
         },
-        "publicsBeneficiairePrecisions": {
+        "publicsBeneficiairePrecision": {
           "description": "Champ texte HTML Précision sur le public bénéficiaire permettant d'ajouter des précisions sur le public bénéficiaire de l'aide",
           "type": "string"
         },
@@ -118,22 +125,22 @@ angular.module("guide-des-aides.contract", [])
         "dateOuvertureCampagne": {
           "description": "champ date Date d'ouverture de la campagne permettant de définir la date de démarrage de la campagne pour cette aide",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "dateFinCampagne": {
           "description": "champ date Date de fin de la campagne permettant de définir la date de fin de la campagne pour cette aide",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "dateDebutFutureCampagne": {
           "description": "champ date Date de début de la futur campagne permettant de définir la date de démarrage de la future campagne pour cette aide",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "datePublicationSouhaitee": {
           "description": "champ date Date de publication souhaitée permettant d'indiquer la date à partir de laquelle l'aide doit être publiée sur le site institutionnel.",
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "commentaire": {
           "description": "champ texte HTML Commentaire interne permettant de saisir des commentaires non visibles de l’extérieur.",
@@ -163,6 +170,10 @@ angular.module("guide-des-aides.contract", [])
       "required": [
         "title"
       ]
+    },
+    "ReferenceType": {
+      "pattern": "^[a-zA-Z0-9\\-_\\.]{0,36}$",
+      "type": "string"
     },
     "LinkType": {
       "description": "RFC for Web Linking context",
