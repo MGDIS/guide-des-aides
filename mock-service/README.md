@@ -3,21 +3,30 @@
 ## Prerequisites
 
 ### Windows
-* [Node.js](https://nodejs.org/download/release/latest/node-v11.1.0-x64.msi)
+* [Node.js](https://nodejs.org/download/release/latest-carbon/node-v8.15.0-x64.msi)
 * [npm](https://github.com/coreybutler/nvm-windows#installation--upgrades)
 
 ### Linux
 * [Node.js](http://nodejs.org/download/)
 * [npm](https://docs.npmjs.com/getting-started/installing-node)
 
-## 1. Install the swagger module
+## 1. Test mock service
 
 Install using npm. Open a terminal.
 
 ```bash
+node v8.15.0
+npm 6.5.0
+$ git clone https://github.com/MGDIS/guide-des-aides.git
+$ cd guide-des-aides
+$ cd mock-service
 $ npm install -g swagger
 $ npm install
 $ swagger project start
+Starting: /guide-des-aides/mock-service/app.js...
+  project started here: http://localhost:10010/guide-des-aides
+  project will restart on changes.
+  to restart at any time, enter `rs`
 ```
 
 ## 2. See API documentation
