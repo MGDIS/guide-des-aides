@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-06/schema#",
   "description": "Définition d'une aide/subvention offertes par une collectivité",
   "definitions": {
     "AideType": {
@@ -44,15 +44,10 @@
         },
         "documentsInformatifs": {
           "description": "Documents informatifs permettant d'associer des documents d'informations à l'aide (règlement d'intervention, délibérations...). Pour chaque document, le titre et le fichier sont renseignés.",
-          "type": "object",
-          "properties": {
-            "patternProperties": {
-              "^[A-Za-z0-9]+$": {
-                "$ref": "#/definitions/LinkDocumentType"
-              }
-            }
-          },
-          "additionalProperties": false
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LinkDocumentType"
+          }
         },
         "objectif": {
           "description": "Texte HTML Objectif permettant de définir l'objectif de l'aide.",
@@ -83,15 +78,10 @@
         },
         "documentsNecessaires": {
           "description": "champ permettant d'associer les documents utiles au dépôt de l'aide (dossier de candidature, annexe...). Pour chaque document, le titre et le fichier sont renseignés.",
-          "type": "object",
-          "properties": {
-            "patternProperties": {
-              "^[A-Za-z0-9]+$": {
-                "$ref": "#/definitions/LinkDocumentType"
-              }
-            }
-          },
-          "additionalProperties": false
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LinkDocumentType"
+          }
         },
         "contact": {
           "description": "Contact permettant de définir le service à contacter pour obtenir des informations sur l’aide. (email + telephone)",

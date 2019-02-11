@@ -45,13 +45,9 @@ angular.module("guide-des-aides.contract", [])
         },
         "documentsInformatifs": {
           "description": "Documents informatifs permettant d'associer des documents d'informations à l'aide (règlement d'intervention, délibérations...). Pour chaque document, le titre et le fichier sont renseignés.",
-          "type": "object",
-          "properties": {
-            "patternProperties": {
-              "^[A-Za-z0-9]+$": {
-                "$ref": "#/definitions/LinkDocumentType"
-              }
-            }
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LinkDocumentType"
           }
         },
         "objectif": {
@@ -83,13 +79,9 @@ angular.module("guide-des-aides.contract", [])
       	},
         "documentsNecessaires": {
           "description": "champ permettant d'associer les documents utiles au dépôt de l'aide (dossier de candidature, annexe...). Pour chaque document, le titre et le fichier sont renseignés.",
-          "type": "object",
-          "properties": {
-            "patternProperties": {
-              "^[A-Za-z0-9]+$": {
-                "$ref": "#/definitions/LinkDocumentType"
-              }
-            }
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LinkDocumentType"
           }
         },
         "contact": {

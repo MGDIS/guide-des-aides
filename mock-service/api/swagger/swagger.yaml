@@ -638,6 +638,10 @@ definitions:
         title:
           type: string
       additionalProperties: false
+      example:
+        href: "/document-collect/root/tenant?objectId=SfxU34kg"
+        id: "/document-collect/root/tenant/public/modeles/RI.pdf"
+        title: "TP'up - Règlement d'intervention - CP 2018-484 du 17.10.18"
     AideType:
       required:
       - title
@@ -713,6 +717,8 @@ definitions:
       - title
       properties:
         reference:
+          type: string
+        referenceAdministrative:
           type: string
         title:
           type: string
@@ -854,15 +860,9 @@ definitions:
           type: string
       additionalProperties: false
     AideType_documentsInformatifs:
-      type: object
-      properties:
-        ^[A-Za-z0-9]+$:
-          $ref: '#/definitions/LinkDocumentType'
-      example:
-        document1:
-          href: "/document-collect/root/tenant?objectId=SfxU34kg"
-          id: "/document-collect/root/tenant/public/modeles/RI.pdf"
-          title: "TP'up - Règlement d'intervention - CP 2018-484 du 17.10.18"
+      type: array
+      items:
+        $ref: '#/definitions/LinkDocumentType'
     AideType_contact:
       type: object
       properties:
