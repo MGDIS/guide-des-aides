@@ -28,14 +28,14 @@
           "type": "array",
           "description": "Mot(s) clé(s) permettant d'associer des mots clés actifs parmi ceux paramétrés sur l'environnement",
           "items": {
-           	"type": "string" 
+            "$ref": "#/definitions/LinkType"
           }
         },
         "competences": {
           "type": "array",
           "description": "Compétences permettant d'associer des compétences actives parmi celles paramétrées sur l'environnement",
           "items": {
-           	"type": "string" 
+            "$ref": "#/definitions/LinkType"
           }
         },
         "entete": {

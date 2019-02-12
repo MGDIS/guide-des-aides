@@ -1,6 +1,6 @@
 angular.module("guide-des-aides.contract", [])
 .constant("GUIDE_AIDE_SCHEMA", {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-06/schema#",
   "description": "Définition d'une aide/subvention offertes par une collectivité",
   "definitions": {
     "AideType": {
@@ -29,14 +29,14 @@ angular.module("guide-des-aides.contract", [])
           "type": "array",
           "description": "Mot(s) clé(s) permettant d'associer des mots clés actifs parmi ceux paramétrés sur l'environnement",
           "items": {
-           	"type": "string" 
+            "$ref": "#/definitions/LinkType"
           }
         },
         "competences": {
           "type": "array",
           "description": "Compétences permettant d'associer des compétences actives parmi celles paramétrées sur l'environnement",
           "items": {
-           	"type": "string" 
+            "$ref": "#/definitions/LinkType"
           }
         },
         "entete": {

@@ -4,16 +4,28 @@
     "title": "TP'up",
     "libelle": "TP'up",
     "tags": [
-      "Économie",
-      "Agriculture",
-      "#IDF"
+      {
+        "href": "/guide-des-aides/api/tenants/tenant/mots-cles/ECONOMIE",
+        "title": "Économie"
+      },
+      {
+        "href": "/guide-des-aides/api/tenants/tenant/mots-cles/AGRICULTURE",
+        "title": "Agriculture"
+      },
+      {
+        "href": "/guide-des-aides/api/tenants/tenant/mots-cles/IDF",
+        "title": "#IDF"
+      }
     ],
     "competences": [
-      "innovation"
+      {
+        "href": "/guide-des-aides/api/tenants/tenant/competences/INNOVATION",
+        "title": "Innovation"
+      }
     ],
     "entete": "<b>Aider les petites entreprises à se développer et moderniser leur outil de production notamment face aux transformations numériques et écologiques.</b>",
     "documentsInformatifs": [
-      { 
+      {
         "href": "/document-collect/root/tenant?objectId=SfxU34kg",
         "id": "/document-collect/root/tenant/public/modeles/RI.pdf",
         "title": "TP'up - Règlement d'intervention - CP 2018-484 du 17.10.18"
@@ -27,7 +39,7 @@
         "href": "/document-collect/root/tenant?objectId=SfxU33kg",
         "id": "/document-collect/root/tenant/public/modeles/pieces-tpup.pdf",
         "title": "TP'up - liste des pièces"
-      } 
+      }
     ],
     "objectif": "<p>TP'up vise à accompagner la croissance des TPE qui souhaitent : <ul><li>accroître et/ou moderniser leur outil de production,</li><li>diversifier leurs activités et leurs cibles de clientèle,</li><li>se développer à l’international,</li><li>accélérer leur transformation numérique,</li><li>faire du développement durable un levier de performance,</li><li>intégrer le design à leur stratégie,</li><li>mener des projets de croissance externe.</li></ul><p>",
     "publicsBeneficiaire": [

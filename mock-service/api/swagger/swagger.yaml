@@ -646,6 +646,10 @@ definitions:
       required:
       - title
       properties:
+        reference:
+          type: string
+        referenceAdministrative:
+          type: string
         title:
           type: string
         libelle:
@@ -653,11 +657,11 @@ definitions:
         tags:
           type: array
           items:
-            type: string
+            $ref: '#/definitions/LinkType'
         competences:
           type: array
           items:
-            type: string
+            $ref: '#/definitions/LinkType'
         entete:
           type: string
         documentsInformatifs:
@@ -727,11 +731,11 @@ definitions:
         tags:
           type: array
           items:
-            type: string
+            $ref: '#/definitions/LinkType'
         competences:
           type: array
           items:
-            type: string
+            $ref: '#/definitions/LinkType'
         entete:
           type: string
         documentsInformatifs:
