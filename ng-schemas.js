@@ -85,19 +85,8 @@ angular.module("guide-des-aides.contract", [])
           }
         },
         "contact": {
-          "description": "Contact permettant de définir le service à contacter pour obtenir des informations sur l’aide. (email + telephone)",
-          "type": "object",
-          "properties": {
-            "email": {
-              "type": "string"
-            },
-            "phone": {
-              "type": "string"
-            },
-            "title": {
-              "type": "string"
-            }
-          }
+          "description": "Section contact HTML permettant de définir le service à contacter",
+          "type": "string"
         },
         "engagementsAssocies": {
           "description": "champ de sélection multiple Engagements associés permettant de lier une aide à des engagements parmi les engagements actifs paramétrés sur l'environnement.",

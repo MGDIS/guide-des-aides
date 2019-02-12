@@ -683,7 +683,7 @@ definitions:
         documentsNecessaires:
           $ref: '#/definitions/AideType_documentsInformatifs'
         contact:
-          $ref: '#/definitions/AideType_contact'
+          type: string
         engagementsAssocies:
           type: array
           items:
@@ -757,7 +757,7 @@ definitions:
         documentsNecessaires:
           $ref: '#/definitions/AideType_documentsInformatifs'
         contact:
-          $ref: '#/definitions/AideType_contact'
+          type: string
         engagementsAssocies:
           type: array
           items:
@@ -867,15 +867,6 @@ definitions:
       type: array
       items:
         $ref: '#/definitions/LinkDocumentType'
-    AideType_contact:
-      type: object
-      properties:
-        email:
-          type: string
-        phone:
-          type: string
-        title:
-          type: string
     DateTimeType:
       type: string
       format: date-time

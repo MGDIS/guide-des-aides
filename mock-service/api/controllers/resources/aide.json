@@ -80,10 +80,7 @@
         "title": "Annexes 2018"
       }
     ],
-    "contact": {
-      "email": "aides.economiques@iledefrance.fr",
-      "title": "Pensez à laisser vos coordonnées pour pouvoir être recontacté"
-    },
+    "contact": "<p>Pensez à laisser vos coordonnées pour pouvoir être recontacté.</p><br><p><a href=\"mailto://aides.economiques@iledefrance.fr?subject=concat aide\">Nous contacter</a></p>",
     "engagementsAssocies": [],
     "dateOuvertureCampagne": "2018-05-26T12:00:03Z",
     "dateFinCampagne": "2018-11-26T12:00:03Z",
