@@ -65,7 +65,12 @@ paths:
       parameters:
         - name: tags
           in: query
-          description: Liste des tags pour filtrer les aides
+          description: Filtre les aides par un tag (mot-clé)
+          required: false
+          type: string
+        - name: statut
+          in: query
+          description: Filtre les aides par leur statut
           required: false
           type: string
         - name: skip
