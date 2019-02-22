@@ -475,7 +475,7 @@ paths:
     patch:
       x-swagger-router-controller: mot-cle
       tags:
-      - competences
+      - mots-cles
       summary: Modifie partiellement un mot-clé du guide des aides
       description: |
         Modifie partiellement un mot-clé du guide des aides
