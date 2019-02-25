@@ -75,14 +75,14 @@ paths:
           type: string
         - name: skip
           in: query
-          description: Index de l'engagement à partir duquel on doit commencer la pagination
+          description: Index de l'aide à partir duquel on doit commencer la pagination
           required: false
           minimum: 0
           type: integer
           default: 0
         - name: top
           in: query
-          description: Nombre d'engagements maximum à renvoyer
+          description: Nombre d'aides maximum à renvoyer
           required: false
           maximum: 50
           minimum: 0
