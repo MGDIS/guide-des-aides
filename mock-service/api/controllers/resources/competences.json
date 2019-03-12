@@ -1,17 +1,20 @@
-[
-  {
-    "href" : "/guide-des-aides/api/tenants/test/competences/SPORT",
-    "title" : "Sport",
-    "description": "Subvention pour le monde du sport"
-  },
-  {
-    "href" : "/guide-des-aides/api/tenants/test/competences/CULTURE",
-    "title" : "Culture",
-    "description": "Lié au milieu culturel"
-  },
-  {
-    "href" : "/guide-des-aides/api/tenants/test/competences/INNOVATION",
-    "title" : "Innovation",
-    "description": "Projets innovants"
-  }
-]
+{
+  "totalcount": 10,
+  "results": [
+    {
+      "href" : "/guide-des-aides/api/tenants/test/competences/SPORT",
+      "title" : "Sport",
+      "description": "Subvention pour le monde du sport"
+    },
+    {
+      "href" : "/guide-des-aides/api/tenants/test/competences/CULTURE",
+      "title" : "Culture",
+      "description": "Lié au milieu culturel"
+    },
+    {
+      "href" : "/guide-des-aides/api/tenants/test/competences/INNOVATION",
+      "title" : "Innovation",
+      "description": "Projets innovants"
+    }
+  ]
+}

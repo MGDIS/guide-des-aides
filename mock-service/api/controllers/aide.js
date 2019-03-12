@@ -8,9 +8,11 @@ function getRandomInt(max) {
 }
 
 module.exports = {
-  listeAides: (req, res) => res.json(aides),
-  recupererAide: (req, res) => res.json(aide),
-  ajouterAide: (req, res) => {
+  publicListeFichesAide: (req, res) => res.json(aides),
+  publicRecupererFicheAide: (req, res) => res.json(aide),
+  listeFichesAide: (req, res) => res.json(aides),
+  recupererFicheAide: (req, res) => res.json(aide),
+  ajouterFicheAide: (req, res) => {
     const body = req.body;
     body.reference = crypto.randomBytes(8).toString("hex");
     const referenceAdministrative = '' + getRandomInt(99999999);

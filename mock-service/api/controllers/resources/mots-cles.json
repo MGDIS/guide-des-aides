@@ -1,14 +1,17 @@
-[
-  {
-    "href" : "/guide-des-aides/api/tenants/test/competences/INNOV",
-    "title" : "#Innovation"
-  },
-  {
-    "href" : "/guide-des-aides/api/tenants/test/competences/CULTURE",
-    "title" : "#Culture"
-  },
-  {
-    "href" : "/guide-des-aides/api/tenants/test/competences/PATRIMOINE",
-    "title" : "#Patrimoine"
-  }
-]
+{
+  "totalcount": 10,
+  "results": [
+    {
+      "href" : "/guide-des-aides/api/tenants/test/competences/INNOV",
+      "title" : "#Innovation"
+    },
+    {
+      "href" : "/guide-des-aides/api/tenants/test/competences/CULTURE",
+      "title" : "#Culture"
+    },
+    {
+      "href" : "/guide-des-aides/api/tenants/test/competences/PATRIMOINE",
+      "title" : "#Patrimoine"
+    }
+  ]
+}
