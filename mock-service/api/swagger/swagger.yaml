@@ -9,10 +9,11 @@ produces:
 info:
   title: Guide des aides
   description: |
-    Le Guide des aides est un module du produit Pilotage des aides, qui est soumis à licence.  Ce service doit permettre à une collectivité :
-    - de décrire son guide des aides à travers une interface présente dans l'espace d'administration.
-    - de donner accès en lecture à ce guide des aides, à travers une api dédiée, à des intervenants externes au portail des aides, afin de publier par exemple ce guide dans le site institutionnel de la société.
-    - de donner la possibilité à des demandeurs de subventions, de visualiser et d'utiliser cette description du guides aides pour sélectionner un téléservice."
+    Le Guide des aides est un module du produit Aiden, qui est soumis à licence.  Ce service doit permettre à une collectivité :
+    - de paramétrer son guide des aides à travers une interface présente dans l'Espace d'Administration.
+    - d’alimenter son guide des aides à travers une interface présente dans l'Espace Agents.
+    - de donner accès en lecture à ce guide des aides, à travers une api dédiée, à des intervenants externes à Aiden, afin de publier par exemple ce guide dans le site institutionnel de la société.
+    - de donner la possibilité à des demandeurs d’aides, de visualiser et d'utiliser cette description du guides aides pour sélectionner un téléservice.
   contact:
     email: contact@mgdis.fr
   license:
